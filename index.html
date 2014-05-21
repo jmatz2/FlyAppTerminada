@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sin título</title>
+<meta name="viewport" content="width=device-width"/>
+<link rel="stylesheet" href="css/jquery.mobile-1.4.2.min.css">
+<link rel="stylesheet" href="css/jquery.mobile.icons-1.4.2.min.css">
+<link rel="stylesheet" href="css/estilos.css">
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.2.min.js"></script>
+<script type="text/javascript" src="js/operaciones.js"></script>
+<script type="text/javascript" src="operaciones.js"></script>
+<script type="text/javascript" src="js/nombres.js"></script>
+<script type="text/javascript" src= "pruebaAjax.js"></script>
+<script type="text/javascript" src="js/funciones.js"></script>
+<script type="text/javascript" src="js/asientosPasajeros.js"></script>
+<script type="text/javascript" src="js/filtros.js"></script>
+<script type="text/javascript" src="js/validaciones.js"></script>
+<script type="text/javascript" src="js/validarAsientos.js"></script>
+
+
+
+<script type="text/javascript" >
+
+
+function cambiarIdioma(){
+
+var lenguaje = document.getElementById("idioma").selectedIndex;
+
+
+
+var variables =[
+document.getElementById("encabezado"), document.getElementById("seleccione"), document.getElementById("btnAdquirir"),
+document.getElementById("btnConsultar"), document.getElementById("pie"), document.getElementById("olvido"),
+document.getElementById("btnEntrar"), document.getElementById("ingrese"), document.getElementById("etqclave"),
+document.getElementById("etqpass"), document.getElementById("consultaDatos"), document.getElementById("btnAceptar"),
+document.getElementById("btnRegresar"), document.getElementById("btnAyuda"), document.getElementById("lbOrigen"),
+document.getElementById("consejo"), document.getElementById("lbaeropuerto"), document.getElementById("lbaeropuerto2"),
+document.getElementById("lbdestino"),document.getElementById("lbPais"), document.getElementById("lbpais2"), 
+document.getElementById("estilo"), document.getElementById("sencillo"), document.getElementById("redondo"),
+document.getElementById("lbsalida"), document.getElementById("lbregreso"), document.getElementById("consultarVV"),
+document.getElementById("vuelosDisponibles"),document.getElementById("lbMoneda"),document.getElementById("quien"),
+document.getElementById("lbAdultos"),document.getElementById("lbMenores"),document.getElementById("lbinfantes"),
+document.getElementById("btnpersonas"),
+document.getElementById("adulto1"),document.getElementById("adulto2"),document.getElementById("adulto3"),
+document.getElementById("adulto4"),document.getElementById("adulto5"),document.getElementById("adNombre1"),
+document.getElementById("adNombre2"),document.getElementById("adNombre3"),document.getElementById("adNombre4"),
+document.getElementById("adNombre5"),document.getElementById("adPaterno1"),document.getElementById("adPaterno2"),
+document.getElementById("adPaterno3"),document.getElementById("adPaterno4"),document.getElementById("adPaterno5"),
+document.getElementById("adMaterno1"),document.getElementById("adMaterno2"),document.getElementById("adMaterno3"),
+document.getElementById("adMaterno4"),document.getElementById("adMaterno5"),document.getElementById("siguiente"),
+document.getElementById("menor1"),document.getElementById("menor2"),document.getElementById("menor3"),
+document.getElementById("mnNombre1"),document.getElementById("mnNombre2"),document.getElementById("mnNombre3"),
+document.getElementById("mnPaterno1"),document.getElementById("mnPaterno2"),document.getElementById("mnPaterno3"),
+document.getElementById("mnMaterno1"),document.getElementById("mnMaterno2"),document.getElementById("mnMaterno3"),
+document.getElementById("infante1"),document.getElementById("infante2"),document.getElementById("infante3"),
+document.getElementById("inNombre1"),document.getElementById("inNombre2"),document.getElementById("inNombre3"),
+document.getElementById("inPaterno1"),document.getElementById("inPaterno2"),document.getElementById("inPaterno3"),
+document.getElementById("inMaterno1"),document.getElementById("inMaterno2"),document.getElementById("inMaterno3"),
+document.getElementById("asientosDisponibles"),
+document.getElementById("u1"),document.getElementById("u2"),document.getElementById("u3"),
+document.getElementById("u4"),document.getElementById("u5"),document.getElementById("u6"),
+document.getElementById("u7"),document.getElementById("u8"),document.getElementById("u9"),
+document.getElementById("u10"),document.getElementById("u11"),
+document.getElementById("conceptosA"),document.getElementById("s3"),
+document.getElementById("paga"),document.getElementById("lbptarjeta"),document.getElementById("nombresTitular"),
+document.getElementById("paternoTitular"),document.getElementById("maternoTitular"),document.getElementById("numeroTarjeta"),document.getElementById("nip"),
+document.getElementById("estado"),document.getElementById("direccion"),document.getElementById("telefono"),
+document.getElementById("celular"),document.getElementById("mail"),document.getElementById("secret"),
+document.getElementById("confirma"),document.getElementById("confirmaPago"),document.getElementById("definitivo"),
+document.getElementById("sisi"), document.getElementById("nono")
+];
+
+var ingles =["WELCOME","Select an option","Get Ticket","Consult","Your destiny is on your hands!!!","Forget your ticket folio or seat num?","Enter",
+"Register your information","Code","Secret Word","Search","OK","Go Back","Help","From","If you don't select the origin, the destination, departure and/or arrival's date, you can consult every available flight if you press the button 'Consult Flights'"
+,"Airport","Airport","Destination","Country","Country","Style","Single","Round","Departure","Return","Checking  flights"
+,"Available Flights","Currency","Who's travelling with you?","Adults","Under-Age(2-11 y/o)","Infant(0-23 months)"
+,"OK"
+,"Adult 1","Adult 2","Adult 3","Adult 4","Adult 5","Name","Name","Name","Name","Name","Last Name","Last Name","Last Name"
+,"Last Name","Last Name","","","","",""
+,"Next","Under-Age 1","Under-Age 2","Under-Age 3","Name","Name","Name","Last Name","Last Name","Last Name","","",""
+,"Infant 1","Infant 2","Infant 3","Name","Name","Name","Last Name","Last Name","Last Name"
+,"","",""
+,"Available Seats"
+,"Seat for:","Seat for:","Seat for:","Seat for:","Seat for:","Seat for:","Seat for:"
+,"Seat for:","Seat for:","Seat for:","Seat for:"
+,"Paying Bill","Pay","Pay"
+,"Credit Card","Holder's name","Holder's Last name","","Credit Card's Number","NIP"
+,"City","Address","Phone Number","Cellphone Number","E-mail","Secret Word (NOTE: It would be required in case of the flight information would be needed)"
+,"Pay","Confirm Pay?","Are you sure you want to continue? You can't redo this action"
+,"OK","Cancel"
+];
+
+
+var frances =["ACCUELI","Choisissez une option","Obtenir un Billet","Consulter","Votre destin est entre vos mains","Mot de billet Folio ou numéro de siège?","Entrer",
+"Entrez vos coordonnées","Clé","Parole secret","Consulter","Accepter","Retour","Aider","Origine","Si vous ne spécifiez pas la source, la destination, la date de départ et / ou arrivée, vous pourrez voir tous les vols disponibles en appuyant sur la touche 'Vérifier vol'"
+,"Aéroport","Aéroport","Destination","Pays","Pays","Type de vol","Simple","Tour","Sortie","Retour","Consulter vols"
+,"Vols disponibles","Monnaie","Qui voyage avec vous?","Adulte","Mineurs (2-11 vieux ans)","Nourrissons (0-23 ms)"
+,"Accepter"
+,"Adulte 1","Adulte 2","Adulte 3","Adulte 4","Adulte 5","Nom","Nom","Nom","Nom","Nom","Nom de famille","Nom de famille","Nom de famille"
+,"Nom de famille","Nom de famille","","","","",""
+,"Suivant","Mineurs 1","Mineurs 2","Mineurs 3","Nom","Nom","Nom","Nom de famille","Nom de famille","Nom de famille","","",""
+,"Nourrissons 1","Nourrissons 2","Nourrissons 3","Nom","Nom","Nom","Nom de famille","Nom de famille","Nom de famille"
+,"","",""
+,"Places libres"
+,"Siége pour:","Siége pour:","Siége pour:","Siége pour:","Siége pour:","Siége pour:","Siége pour:"
+,"Siége pour:","Siége pour:","Siége pour:","Siége pour:"
+,"Compte","Payer","Payer"
+,"Carte de crédit","Nom du titulaire","Nom de famille du titulaire","","Numéro de carte de crédit","NIP"
+,"Ville","Adresse","Téléphone","Cellulaire","E-mail","Parole secret: (NOTE: Il sera nécessaire dans le cas où vous avez besoin de vérifier vos informations de vol)"
+,"Paye","Confirmer le paiement?","Etes-vous sûr de vouloir continuer? Vous ne pouvez pas annuler l'action."
+,"Accepter","Annuler"
+];
+
+
+var aleman =["WILLKOMMEN","Wählen Sie eine Option","Ticket-Kauf","Konsultieren","Ihr Schicksal liegt in deinen Händen!!!","Passwort Folio No Ticket oder Sitzplatz?","Eingeben",
+"Geben Sie Ihre Daten","Schlüssel","Geheimes Wort","Konsultieren","Akzeptieren","Rückkehr","Hilfe","Herkunft","Wenn Sie die Quelle, Ziel, Zeitpunkt des Beginns und / oder Ankunft nicht angeben, können Sie sehen, alle verfügbaren Flüge Drücken der Taste 'Check Flight'."
+,"Flughafen","Flughafen","Ziel","Ziel","Land","Reiseart","Einfanch","Runde","Ausgang","Rückkehr","Konsultieren Flüge"
+,"Konsultieren Flüge","Währung","Wer reist mit Ihnen?","Erwachsene","Minderjährige (2-11 Jahre)","Kleinkinder (0-23 ms)"
+,"Akzeptieren"
+,"Erwachsene 1","Erwachsene 2","Erwachsene 3","Erwachsene 4","Erwachsene 5","Name","Name","Name","Name","Name","Nachname","Nachname","Nachname"
+,"Nachname","Nachname","","","","",""
+,"Folgende","Minderjährige 1","Minderjährige 2","Minderjährige 3","Name","Name","Name","Nachname","Nachname","Nachname","","",""
+,"Kleinkinder 1","Kleinkinder 2","Kleinkinder 3","Name","Name","Name","Nachname","Nachname","Nachname"
+,"","",""
+,"Sitze verfügbar"
+,"Sitzplätze für:","Sitzplätze für:","Sitzplätze für:","Sitzplätze für:","Sitzplätze für:","Sitzplätze für:","Sitzplätze für:"
+,"Sitzplätze für:","Sitzplätze für:","Sitzplätze für:","Sitzplätze für:"
+,"Konzepte zu zahlen","Zahlen","Zahlen"
+,"Kreditkarte","Namen des Inhabers","Nachnamen des Inhabers","","Kreditkartennummer","NIP"
+,"Zustand","Adresse","Telefon","Handy","E-Mail","Geheimes Wort: (HINWEIS: Es wird für den Fall erforderlich, die Sie benötigen, um Ihre Fluginformationen zu überprüfen)"
+,"Zahlen","Bestätigen Zahlung?","Sind Sie sicher, dass Sie fortfahren möchten? Sie können die Aktion nicht rückgängig zu machen."
+,"Akzeptieren","Stornieren"
+];
+
+
+var español =["BIENVENIDO","Seleccione una opcion","Adquirir Boleto","Consultar","¡¡¡Tu destino está en la palma de tu mano!!!","¿Olvidó su Folio de boleto o su No. de asiento?","Entrar",
+"Ingrese sus datos","Clave","Palabra Secreta","Consultar","Aceptar","Regresar:","Ayuda","Origen","Si no especifica el origen, el destino, la fecha de salida y/o llegada,usted podrá consultar todos los vuelos disponibles si presiona el botón de 'Consultar Vuelos'."
+,"Aeropuerto","Aeropuerto","Destino","Pais","Pais","Estilo de viaje","Sencillo","Redondo","Salida","Regreso","Consultar vuelos"
+,"Vuelos disponibles","Moneda","¿Quien viaja con usted?","Adultos","Menores (2-11 años)","Infantes (0-23 meses)"
+,"Aceptar"
+,"Adulto 1","Adulto 2","Adulto 3","Adulto 4","Adulto 5","Nombre","Nombre","Nombre","Nombre","Nombre","Apellido Paterno","Apellido Paterno","Apellido Paterno"
+,"Apellido Paterno","Apellido Paterno","Apellido Materno","Apellido Materno","Apellido Materno","Apellido Materno","Apellido Materno"
+,"Siguiente","Menor 1","Menor 2","Menor 3","Nombre","Nombre","Nombre","Apellido Paterno","Apellido Paterno","Apellido Paterno","Apellido Materno","Apellido Materno","Apellido Materno"
+,"Infante 1","Infante 2","Infante 3","Nombre","Nombre","Nombre","Apellido Paterno","Apellido Paterno","Apellido Paterno"
+,"Apellido Materno","Apellido Materno","Apellido Materno"
+,"Asientos disponibles"
+,"Asiento para:","Asiento para:","Asiento para:","Asiento para:","Asiento para:","Asiento para:","Asiento para:"
+,"Asiento para:","Asiento para:","Asiento para:","Asiento para:"
+,"Conceptos a pagar","Pagar","Pagar"
+,"Tarjeta","Nombres del titular","Apellido Paterno del titular","Apellido Materno del titular","Número de tarjeta","NIP"
+,"Estado","Dirección","Telefono","Celular","E-mail","Palabra secreta: (NOTA: Sera requerida en caso de que necesite consultar su información de vuelo)"
+,"Pagar","¿Confirmar Pago?","¿Esta seguro que desea continuar? No podrá revertir la acción."
+,"Aceptar","Cancelar"
+];
+
+
+var c=0;
+var fondo = document.getElementById("bandera");
+
+if(lenguaje=="2"){
+fondo.src="images/inglaterra.jpg";
+while(c<variables.length){
+	variables[c].innerHTML= ingles[c];
+	c++;
+	
+	}
+var apellido1= document.getElementById("apMat1");
+var apellido2= document.getElementById("apMat2");
+var apellido3= document.getElementById("apMat3");
+var apellido4= document.getElementById("apMat4");
+var apellido5= document.getElementById("apMat5");
+
+apellido1.style.display = "none";
+apellido2.style.display = "none";
+apellido3.style.display = "none";
+apellido4.style.display = "none";
+apellido5.style.display = "none";
+
+var apellido11= document.getElementById("apMatmen1");
+var apellido12= document.getElementById("apMatmen2");
+var apellido13= document.getElementById("apMatmen3");
+
+apellido11.style.display = "none";
+apellido12.style.display = "none";
+apellido13.style.display = "none";
+
+var apellido21= document.getElementById("apMatinf1");
+var apellido22= document.getElementById("apMatinf2");
+var apellido23= document.getElementById("apMatinf3");
+
+apellido21.style.display = "none";
+apellido22.style.display = "none";
+apellido23.style.display = "none";
+
+var apellido31= document.getElementById("papellidoM");
+apellido31.style.display = "none";
+
+}
+
+if(lenguaje=="3"){
+while(c<variables.length){
+fondo.src="images/francia.jpg";
+	variables[c].innerHTML= frances[c];
+	c++;
+	}
+var apellido1= document.getElementById("apMat1");
+var apellido2= document.getElementById("apMat2");
+var apellido3= document.getElementById("apMat3");
+var apellido4= document.getElementById("apMat4");
+var apellido5= document.getElementById("apMat5");
+
+apellido1.style.display = "none";
+apellido2.style.display = "none";
+apellido3.style.display = "none";
+apellido4.style.display = "none";
+apellido5.style.display = "none";
+
+var apellido11= document.getElementById("apMatmen1");
+var apellido12= document.getElementById("apMatmen2");
+var apellido13= document.getElementById("apMatmen3");
+
+apellido11.style.display = "none";
+apellido12.style.display = "none";
+apellido13.style.display = "none";
+
+var apellido21= document.getElementById("apMatinf1");
+var apellido22= document.getElementById("apMatinf2");
+var apellido23= document.getElementById("apMatinf3");
+
+apellido21.style.display = "none";
+apellido22.style.display = "none";
+apellido23.style.display = "none";
+
+var apellido31= document.getElementById("papellidoM");
+apellido31.style.display = "none";
+}
+
+if(lenguaje=="4"){
+    fondo.src="images/alemania.jpg";
+while(c<variables.length){
+	variables[c].innerHTML= aleman[c];
+	c++;
+	}
+var apellido1= document.getElementById("apMat1");
+var apellido2= document.getElementById("apMat2");
+var apellido3= document.getElementById("apMat3");
+var apellido4= document.getElementById("apMat4");
+var apellido5= document.getElementById("apMat5");
+
+apellido1.style.display = "none";
+apellido2.style.display = "none";
+apellido3.style.display = "none";
+apellido4.style.display = "none";
+apellido5.style.display = "none";
+
+var apellido11= document.getElementById("apMatmen1");
+var apellido12= document.getElementById("apMatmen2");
+var apellido13= document.getElementById("apMatmen3");
+
+apellido11.style.display = "none";
+apellido12.style.display = "none";
+apellido13.style.display = "none";
+
+var apellido21= document.getElementById("apMatinf1");
+var apellido22= document.getElementById("apMatinf2");
+var apellido23= document.getElementById("apMatinf3");
+
+apellido21.style.display = "none";
+apellido22.style.display = "none";
+apellido23.style.display = "none";
+
+var apellido31= document.getElementById("papellidoM");
+apellido31.style.display = "none";
+}
+if(lenguaje=="1"){
+    fondo.src="images/espana.jpg";
+while(c<variables.length){
+	variables[c].innerHTML= español[c];
+	c++;
+	}
+var apellido1= document.getElementById("apMat1");
+var apellido2= document.getElementById("apMat2");
+var apellido3= document.getElementById("apMat3");
+var apellido4= document.getElementById("apMat4");
+var apellido5= document.getElementById("apMat5");
+
+apellido1.style.display = "block";
+apellido2.style.display = "block";
+apellido3.style.display = "block";
+apellido4.style.display = "block";
+apellido5.style.display = "block";
+
+var apellido11= document.getElementById("apMatmen1");
+var apellido12= document.getElementById("apMatmen2");
+var apellido13= document.getElementById("apMatmen3");
+
+apellido11.style.display = "block";
+apellido12.style.display = "block";
+apellido13.style.display = "block";
+
+var apellido21= document.getElementById("apMatinf1");
+var apellido22= document.getElementById("apMatinf2");
+var apellido23= document.getElementById("apMatinf3");
+
+apellido21.style.display = "block";
+apellido22.style.display = "block";
+apellido23.style.display = "block";
+
+var apellido31= document.getElementById("papellidoM");
+apellido31.style.display = "block";
+}
+
+}
+
+
+function consultarA(){
+var folio =  document.getElementById("clave").value;
+var pass= document.getElementById("pw").value;
+request=new getAjax();
+request.open("GET","http://flyapp.260mb.net/consultarXfolio.php?folio="+folio+"&pass="+pass,true);
+request.onreadystatechange=function(){
+    if(this.readyState==4){
+        if(this.status==200){
+            if(this.responseText!=null){
+                document.getElementById("divConsiltarXfolio").innerHTML=this.responseText;
+            }
+        }
+    }
+}
+request.send(null);
+}
+
+function habilitar(){  
+  $("#divRegreso").slideToggle("slow");
+}
+
+function habilitar2(){
+  $("#botonaceptar").slideToggle("slow");
+}
+</script>
+
+</head>
+
+<body onload="cargarPaises(); cargarPaises2(); aeropuertoDestino()"> 
+
+<div data-role="page" id="page">
+	<div data-role="header" data-theme="b">
+		<img src="images/logo1.png" width="100%" >
+
+	</div>
+    
+     <div data-role="content" style="background:#CAD8FE">
+	    <center><h1 id="encabezado">BIENVENIDO</h1></center>
+        <center><img id="bandera" src="images/espana.jpg" width="60px" height="40px"/></center>        
+        
+        <div class="ui-field-contain">
+        <select id="idioma" onChange="cambiarIdioma()" width="50px" data-native-menu="false">        
+		<option><----></option>
+        <option>Español</option>
+        <option>English</option> 
+        <option>Français</option>
+        <option>Deutsch</option>
+        </select>
+        </div>
+        
+        </div>
+    
+    <div data-role="content" style="background:#CAD8FE" id="opc">        	        
+        <fieldset>
+        	<center><label style="font-size:20px" id="seleccione">Seleccione una opción</label></center><br>
+            <div class="ui-grid-a">
+            	<div class="ui-block-a">
+		<a href="#datcons" data-role="button" data-theme="b" id="btnAdquirir">Adquirir Boleto</a>
+                </div>
+                <div class="ui-block-b">
+		<a href="#consultar" data-role="button" data-theme="b" id="btnConsultar">Consultar</a>
+                </div>
+            </div>
+        </fieldset>
+        <br>
+	    <center><img src="images/PortadaFlyApp.gif" width="420" height="220"></center>           
+    </div>
+
+    <div data-role="footer" data-theme="b">
+        <marquee id="pie">¡¡¡Tu destino está en la palma de tu mano!!!</marquee>	                  
+    </div>
+	</div>
+
+<div data-role="page" id="consultar">
+    	<div data-role="header" data-theme="b">
+        	<h1>FLYAPP</h1>
+            <h4>CONSULTAR</h4>
+        </div>
+        <div data-role="content" style="background-color:#CAD8FE">
+	    <center><h4 id="olvido">¿Olvidó su Folio de boleto o su No. de asiento?</h4></center>
+	    <a href="#Login" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-icon-check ui-btn-icon-left ui-btn-a" 
+	    data-transition="pop" id="btnEntrar">Entrar</a>
+	    <div data-role="popup" id="Login" data-theme="a" class="ui-corner-all">
+	      <form>
+		<div style="padding:30px 80px; background:#CAD8FE">
+		    <h3 id="ingrese">Ingrese sus datos:</h3>
+		    <label for="clave" id="etqclave">Clave:</label>
+		    <input type="text" name="clave" id="clave" value="" placeholder="1-1-ALTA" data-theme="a">
+		    <label for="pw" id="etqpass">Palabra secreta:</label>
+		    <input type="password" name="pass" id="pw" placeholder="*****" data-theme="a">
+		    <!--button type="submit" class="ui-btn ui-corner-all  ui-btn-b ui-btn-icon-left ui-icon-check" onClick="consultarA()">Consultar</button-->
+		    <a href="#consultar" data-role="button" data-theme="b" onClick="consultarA(); habilitar2()" id="consultaDatos">Consultar</a>
+		</div>
+	      </form>
+	    </div>
+	    <br>
+	    <div id="divConsiltarXfolio" style="font-size: 18px"></div>
+	    <div id="botonaceptar">
+		<a id="canVuelo" data-theme="b" data-role="button" onClick="cancelarVuelo()">Cancelar Vuelo</a>
+		<a href="#page" data-theme="b" data-role="button" id="btnAceptar">ACEPTAR</a>
+	    </div>
+        </div>
+        <div data-role="footer" data-theme="b">
+	    <h4>FlyApp</h4>
+	    <img src="images/avioncito.gif" id="publicidad" width="100%"/>
+        </div>
+                	
+       
+</div>
+
+
+<div data-role="page" id="datcons">
+	<div data-role="header" data-theme="b">
+		<h1>FlyApp</h1>
+		<a href="#" data-icon="carat-l" height="20px" iconpos="notext" id="btnRegresar">Regresar</a>
+		<a href="#ayuda" data-icon="info" data-rel="popup" data-transition="slideup" id="btnAyuda">Ayuda</a>
+		<div data-role="popup" id="ayuda" data-theme="b">
+		    <h3 style="text-align:center" id="consejo">Si no especifica el origen, el destino, la fecha de salida y/o llegada, usted
+		     podrá consultar todos los vuelos disponibles si presiona el botón de "Consultar Vuelos".</h3>
+		</div>
+	</div>		      
+        
+       <div data-role="content" style="background-color:#CAD8FE">
+       
+        <label id="lbOrigen">Origen</label>       
+      	<label id="lbPais">País</label>
+        <div class="ui-field-contain" id="divCargarPaises2"></div>
+        <label for="lbaeropuerto" id="lbaeropuerto" >Aeropuerto</label>
+        </div>
+        <div data-role="content" style="background-color:#CAD8FE">
+		<div class="airport" id="divAeropuertosOrigen">
+		    
+		</div>
+	</div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label for="lbdestino" id="lbdestino" >Destino</label>
+    
+      <label for="lbpais2" id="lbpais2" >País</label>
+      <div class="ui-field-contain" id="divCargarPaises"></div>
+      
+      <label for="lbaeropuerto2" id="lbaeropuerto2" >Aeropuerto:</label>
+      </div>
+      <div data-role="content" class="airport" style="background-color:#DBE5FE">
+      <div class="airport" id= "divAeropuertosDestino"></div>
+      </div>
+    
+    
+    
+    <div data-role="content" style="background-color:#CAD8FE">
+       <form>
+    <fieldset data-role="controlgroup" data-type="horizontal" style="text-align:center">
+        <legend id="estilo">Estilo de Viaje:</legend>
+        <input type="radio" name="estilo" id="sencillo" value="on" checked="checked" onChange="habilitar()">
+        <label for="sencillo" id="sencillo">Sencillo</label>
+        <input type="radio" name="estilo" id="redondo" value="off" onChange="habilitar()">
+        <label for="redondo">Redondo</label>
+    </fieldset>
+</form>
+    </div>
+    
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+
+        <label for="lbsalida" id="lbsalida">Salida</label>
+        <input type="date" id="salida"/>
+        </div>
+        
+	<div id="divRegreso" data-role="content" style="background-color:#DBE5FE">
+
+        <label id="lbregreso">Regreso</label>
+        <input type="date" id="salida"/>
+        </div>
+    
+        
+        <div data-role="content" style="background-color:#DBE5FE">
+        <a href="#vuelos" id="consultarVV" data-role="button" onClick="validaAeropuerto(); consultarVuelos()" data-icon="arrow-r" data-iconpos="right" data-role="button" data-theme="b">Consultar vuelos</a>
+	</div>
+        
+        
+	<div data-role="footer" data-theme="b">
+    <h4>FlyApp</h4>
+    <img src="images/avioncito.gif" width="100%"/>
+	</div>
+</div>
+
+
+
+    
+<div data-role="page" id="vuelos">
+	<div data-role="header" data-theme="b">
+		<h1 id="vuelosDisponibles">Vuelos disponibles</h1>
+	</div>
+	<div data-role="content" style="background-color:#CAD8FE">            	  
+          <form>
+    <fieldset data-role="controlgroup" data-type="horizontal" style="text-align:center">
+        <legend id="lbMoneda">Moneda:</legend>
+        <input type="radio" id="peso" name="tipoMoneda" value="peso" checked="checked" onClick="consultarVuelos()">
+        <label for="peso">Pesos (MXN)</label>
+        <input type="radio" id="dolar" name="tipoMoneda" value="dolar" onClick="consultarVuelos()">
+        <label for="dolar">Dollar (USD)</label>
+        <input type="radio"  id="euro" name="tipoMoneda" value="euro" onClick="consultarVuelos()">
+        <label for="euro">Euro (€)</label>
+    </fieldset>
+</form>
+    <br/>
+    <div id= "divTablero"></div>    
+    <br><br><br><br>
+	</div>
+	<div data-role="footer" data-theme="b">
+		<h4>FlyApp</h4>
+        <img src="images/avioncito.gif" id="publicidad" width="100%"/>
+	</div>
+</div>
+
+
+
+<div data-role="page" id="comprar">	
+	<div data-role="header" data-theme="b">		
+        <br/><h2 id="quien">¿Quien viaja con usted?</h2>
+	</div>	
+	
+	<div data-role="content" style="background-color:#CAD8FE">
+    <label id="lbAdultos">Adultos:</label>
+    <div class="ui-field-contain">
+    <select id="opcAdulto" data-native-menu="false">
+    	
+    	<option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    	<option>5</option>        
+    </select>
+    </div>
+    </div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label id="lbMenores">Menores (2-11 años):</label>
+		<div class="ui-field-contain">
+        	<select id="opcmenor" data-native-menu="false">        
+            	<option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+        </div>
+</div>
+
+	<div data-role="content" style="background-color:#CAD8FE">
+    <label for="lbinfantes" id="lbinfantes">Infantes (0-23 meses):</label>
+		<div class="ui-field-contain">
+        	<select id="opcinfante" data-native-menu="false">
+	        	
+    	        <option>0</option>
+    	        <option>1</option>
+        	    <option>2</option>
+            	<option>3</option>
+            </select>
+        </div>
+    </div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <input data-theme="b" type="button" id="btnpersonas" value="Aceptar" onClick="pasaje(); asientosPasajeros();"
+    id="btnAceptarPersonas"/>
+    </div>    
+    
+    <div id="divAdulto1" data-role="content" style="background-color:#CAD8FE">
+	<h3 id="adulto1"><center>Adulto 1</center></h3>
+	<label id="adNombre1">Nombre</label>
+	<input type="text" id="adul1">
+	<label id="adPaterno1">Apellido Paterno</label>
+	<input type="text" id="apPat1">
+	<label id="adMaterno1">Apellido Materno</label>
+	<input type="text" id="apMat1">
+	
+    </div>
+    <div id="divAdulto2" data-role="content" style="background-color:#DBE5FE">
+	<h3 id="adulto2"><center>Adulto 2</center></h3>
+	<label id="adNombre2">Nombre</label>
+	<input type="text" id="adul2">
+	<label id="adPaterno2">Apellido Paterno</label>
+	<input type="text" id="apPat2">
+	<label id="adMaterno2">Apellido Materno</label>
+	<input type="text" id="apMat2">
+    </div>
+    <div id="divAdulto3" data-role="content" style="background-color:#CAD8FE">
+	<h3 id="adulto3"><center>Adulto 3</center></h3>
+	<label id="adNombre3">Nombre</label>
+	<input type="text" id="adul3">
+	<label id="adPaterno3">Apellido Paterno</label>
+	<input type="text" id="apPat3">
+	<label id="adMaterno3">Apellido Materno</label>
+	<input type="text" id="apMat3">
+    </div>
+    <div id="divAdulto4" data-role="content" style="background-color:#DBE5FE">
+	<h3 id="adulto4"><center>Adulto 4</center></h3>
+	<label id="adNombre4">Nombre</label>
+	<input type="text" id="adul4">
+	<label id="adPaterno4">Apellido Paterno</label>
+	<input type="text" id="apPat4">
+	<label id="adMaterno4">Apellido Materno</label>
+	<input type="text" id="apMat4">
+    </div>
+    <div id="divAdulto5" data-role="content" style="background-color:#CAD8FE">
+	<h3 id="adulto5"><center>Adulto 5</center></h3>
+	<label id="adNombre5">Nombre</label>
+	<input type="text" id="adul5">
+	<label id="adPaterno5">Apellido Paterno</label>
+	<input type="text" id="apPat5">
+	<label id="adMaterno5">Apellido Materno</label>
+	<input type="text" id="apMat5">
+    </div>
+    <div id="divMenor1" data-role="content" style="background-color:#DBE5FE">
+	<h3 id="menor1"><center>Menor 1</center></h3>
+	<label id="mnNombre1">Nombre</label>
+	<input type="text" id="men1">
+	<label id="mnPaterno1">Apellido Paterno</label>
+	<input type="text" id="apPatmen1">
+	<label id="mnMaterno1">Apellido Materno</label>
+	<input type="text" id="apMatmen1">
+    </div>
+    <div id="divMenor2" data-role="content" style="background-color:#CAD8FE">
+	<h3 id="menor2"><center>Menor 2</center></h3>
+	<label id="mnNombre2">Nombre</label>
+	<input type="text" id="men2">
+	<label id="mnPaterno2">Apellido Paterno</label>
+	<input type="text" id="apPatmen2">
+	<label id="mnMaterno2">Apellido Materno</label>
+	<input type="text" id="apMatmen2">
+    </div>
+    <div id="divMenor3" data-role="content" style="background-color:#DBE5FE">
+	<h3 id="menor3"><center>Menor 3</center></h3>
+	<label id="mnNombre3">Nombre</label>
+	<input type="text" id="men3">
+	<label id="mnPaterno3">Apellido Paterno</label>
+	<input type="text" id="apPatmen3">
+	<label id="mnMaterno3">Apellido Materno</label>
+	<input type="text" id="apMatmen3">
+    </div>
+    <div id="divInfante1" data-role="content" style="background-color:#CAD8FE">
+	<h3 id="infante1"><center>Infante 1</center></h3>
+	<label id="inNombre1">Nombre</label>
+	<input type="text" id="inf1">
+	<label id="inPaterno1">Apellido Paterno</label>
+	<input type="text" id="apPatinf1">
+	<label id="inMaterno1">Apellido Materno</label>
+	<input type="text" id="apMatinf1">
+    </div>
+    <div id="divInfante2" data-role="content" style="background-color:#DBE5FE">
+	<h3 id="infante2"><center>Infante 2</center></h3>
+	<label id="inNombre2">Nombre</label>
+	<input type="text" id="inf2">
+	<label id="inPaterno2">Apellido Paterno</label>
+	<input type="text" id="apPatinf2">
+	<label id="inMaterno2">Apellido Materno</label>
+	<input type="text" id="apMatinf2">
+    </div>
+    <div id="divInfante3" data-role="content" style="background-color:#CAD8FE">
+	<h3 id="infante3"><center>Infante 3</center></h3>
+	<label id="inNombre3">Nombre</label>
+	<input type="text" id="inf3">
+	<label id="inPaterno3">Apellido Paterno</label>
+	<input type="text" id="apPatinf3">
+	<label id="inMaterno3">Apellido Materno</label>
+	<input type="text" id="apMatinf3">
+    </div> 
+      <div data-role="content" style="background-color:#CAD8FE">
+        <a href="#asientos" id="siguiente" data-theme="b" data-role="button" data-icon="arrow-r" data-iconpos="right" onClick="validaPasajeros(); mostrarNombres(); reservar()">Siguiente</a>
+      </div>
+	<div data-role="footer" data-theme="b">
+		<h4>FlyApp</h4>
+		
+        <img src="images/avioncito.gif" id="publicidad" width="100%"/>
+	</div>
+   </div>   
+
+<div data-role="page" id="asientos">
+    	<div data-role="header" data-theme="b">
+        	<h1>FLYAPP</h1>
+            <br/><h2 id="asientosDisponibles">Asientos Disponibles</h2>
+        </div>
+    
+    	<div id="tablaAsientos" data-role="content" data-type="horizontal" style="background-color:#CAD8FE"></div>
+            <div id="asientoAdulto1" data-role="content" style="background-color:#DBE5FE">
+	      <center><label id="u1">Asiento para:</label> <label id="nomAdul1"></label><label id="apAdul1"></label></center>
+	      <div class="ui-field-contain" id="numAsienAdul1"></div>
+	    </div>
+	    <div id="asientoAdulto2" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u2">Asiento para: </label><label id="nomAdul2"></label></center>
+	       <div class="ui-field-contain" id="numAsienAdul2"></div>
+	    </div>
+	    <div id="asientoAdulto3" data-role="content" style="background-color:#DBE5FE">
+	      <center><label id="u3">Asiento para:</label> <label id="nomAdul3"></label></center>
+	      <div class="ui-field-contain" id="numAsienAdul3"></div>
+	    </div>
+	    <div id="asientoAdulto4" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u4">Asiento para: </label><label id="nomAdul4"></label></center>
+	      <div class="ui-field-contain" id="numAsienAdul4"></div>
+	    </div>
+	    <div id="asientoAdulto5" data-role="content" style="background-color:#DBE5FE">
+	      <center><label id="u5">Asiento para: </label><label id="nomAdul5"></label></center>
+	      <div class="ui-field-contain" id="numAsienAdul5"></div>
+	    </div>
+	    <div id="asientoMenor1" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u6">Asiento para: </label><label id="nomMen1"></label></center>
+	      <div class="ui-field-contain" id="numAsienMen1"></div>
+	    </div>
+	    <div id="asientoMenor2" data-role="content" style="background-color:#DBE5FE">
+	      <center><label id="u7">Asiento para: </label><label id="nomMen2"></label></center>
+	      <div class="ui-field-contain" id="numAsienMen2"></div>
+	    </div>
+	    <div id="asientoMenor3" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u8">Asiento para: </label><label id="nomMen3"></label></center>
+	      <div class="ui-field-contain" id="numAsienMen3"></div>
+	    </div>
+	    <div id="asientoInfante1" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u9">Asiento para: </label><label id="nomInf1"></label></center>
+	      <div class="ui-field-contain" id="numAsienInf1"></div>
+	    </div>
+	    <div id="asientoInfante2" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u10">Asiento para: </label><label id="nomInf2"></label></center>
+	      <div class="ui-field-contain" id="numAsienInf2"></div>
+	    </div>
+	    <div id="asientoInfante3" data-role="content" style="background-color:#CAD8FE">
+	      <center><label id="u11">Asiento para: </label><label id="nomInf3"></label></center>
+	      <div class="ui-field-contain" id="numAsienInf3"></div>
+	    </div>
+	    <div style="background-color:#DBE5FE" data-role="content">
+	      <a href="#factura" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="right" onClick="validarAsientos(); recogerDatos()">Siguiente</a>
+	    </div>
+        <div data-role="footer" data-theme="b">
+        	<h4>FlyApp</h4>
+		    <img src="images/avioncito.gif" id="publicidad" width="100%"/>
+        </div>
+    </div>
+
+
+<div data-role="page" id="factura">
+	<div data-role="header" data-theme="b">
+        <br/><h2 id="conceptosA">Conceptos a pagar</h2>
+	</div>
+	<div data-role="content" style="background-color:#CAD8FE" id="conceptos">
+	</div>
+	<div data-role="content" style="background-color:#CAD8FE" id="personas"></div>
+	<div data-role="content" style="background-color:#CAD8FE">
+        <a href="#pagar" id="s3" data-role="button" data-theme="b" data-icon="arrow-r" data-iconpos="right" >Pagar</a>
+        
+	</div>
+	<div data-role="footer" data-theme="b">
+		<h4>FlyApp</h4>
+        <img src="images/avioncito.gif" width="100%">
+	</div>
+</div>
+
+
+
+  <div data-role="page" id="pagar">
+	<div data-role="header" data-theme="b">
+        <br/><h2 id="paga">Pagar</h2>
+	</div>    
+    <div data-role="content" style="background-color:#CAD8FE">
+    <label for="lbptarjeta" id="lbptarjeta">Tarjeta:</label>
+    	<div class="ui-field-contain">
+		    <select id="ptarjeta" data-native-menu="false">
+			    <option>Seleccione</option>
+			    <option>Visa</option>
+			    <option>Master Card</option>
+			    <option>American Express</option>                
+			    <option>Otra</option>
+		    </select>
+    	</div>
+    </div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label id="nombresTitular">Nombres del titular:</label>
+    <Input type="text" id="panombre"/>
+    </div>
+    
+    <div data-role="content" style="background-color:#CAD8FE">
+    <label id="paternoTitular">Apellido Paterno del titular</label>
+    <input type="text" id="papellidoP"/>
+    </div>
+    
+     <div data-role="content" style="background-color:#CAD8FE">
+    <label id="maternoTitular">Apellido Materno del titular</label>
+    <input type="text" id="papellidoM"/>
+    </div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label id="numeroTarjeta">Número de tarjeta</label>
+    <input type="number" id="pnumeroT"/>
+    </div>
+    
+    <div data-role="content" style="background-color:#CAD8FE">
+    <label id="nip">NIP</label>
+    <input type="password" id="pnip"/>
+    </div>
+                
+    <div data-role="content" style="background-color:#DBE5FE">
+
+    <label>País:</label>
+	<input type="text" id="papais" name="pais">      
+    <label id="estado">Estado</label>
+    <input type="text" id="paestado" name="paestado">
+    </div>        
+    
+    <div data-role="content" style="background-color:#CAD8FE">
+    <label id="direccion">Dirección</label>
+    <input type="text" id="padireccion"/>
+    </div>
+
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label id="telefono">Telefono</label>
+    <input type="number" id="patelefono">
+    </div>
+    
+    <div data-role="content" style="background-color:#CAD8FE">
+    <label id="celular">Celular</label>
+    <input type="number" id="pacelular">
+    </div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label id="mail">E-mail</label>
+    <input type="email" id="pmail">
+    </div>
+    
+    <div data-role="content" style="background-color:#DBE5FE">
+    <label id="secret">Palabra secreta: (NOTA: Sera requerida en caso de que necesite consultar su información de vuelo)</label>
+    <input type="text" id="secreto">
+    </div>
+        
+    <div data-role="content" style="background-color:#CAD8FE">
+    <!--a href="#confirmar" data-rel="dialog" id="btnPagar" data-role="button" data-theme="b" data-icon="check" data-iconpos="top">Pagar</a-->    
+    <a href="#confirmar" id="confirma" data-rel="dialog" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow  ui-icon-check ui-btn-icon-right ui-btn-b"  onClick="validarPago()">Pagar</a>
+    </div>
+	</div>
+	
+  <div data-role="dialog" id="confirmar" data-overlay-theme="b" data-theme="b" data-dismissible="false">
+    <div data-role="header" data-theme="a">
+    <h1 id="confirmaPago">¿CONFIRMAR PAGO?</h1>
+    </div>
+    <div role="main" class="ui-content">
+        <h3 class="ui-title" id="definitivo">¿Esta seguro que desea continuar? No podrá revertir la acción.</h3>    
+        <a href="#page" id="sisi" class="ui-btn ui-corner-all ui-shadow  ui-btn-b" data-transition="flow" onClick="adquirir()">ACEPTAR</a>
+        <a href="#" id="nono"class="ui-btn ui-corner-all ui-shadow  ui-btn-b" data-rel="back">CANCELAR</a>        
+    </div>
+  </div>
+  
+	</div>
+</div>
+</body>
+</html>

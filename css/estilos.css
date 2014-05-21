@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+
+#encabezado{
+	font-size:40px;
+	font-family: CASTELLAR;
+	text-shadow: 5px 5px 10px #03F;
+}
+#pie{
+	font-size:24px;
+	font-family: times new roman;
+	}
+#bandera{
+	border-radius:15px 15px 15px 15px;
+	}
+#divRegreso{    
+    display: none;
+}
+
+#tablaAsientos{
+    height: 480px;
+}
+
+#divAdulto1{
+    display: none;
+}
+#divAdulto2{
+    display: none;
+}
+#divAdulto3{
+    display: none;
+}
+#divAdulto4{
+    display: none;
+}
+#divAdulto5{
+    display: none;
+}
+#divMenor1{
+    display: none;
+}
+#divMenor2{
+    display: none;
+}
+#divMenor3{
+    display: none;
+}
+#divInfante1{
+    display: none;
+}
+#divInfante2{
+    display: none;
+}
+#divInfante3{
+    display: none;
+}
+#asientoAdulto1{
+    display: none;
+}
+#asientoAdulto2{
+    display: none;
+}
+#asientoAdulto3{
+    display: none;
+}
+#asientoAdulto4{
+    display: none;
+}
+#asientoAdulto5{
+    display: none;
+}
+#asientoMenor1{
+    display: none;
+}
+#asientoMenor2{
+    display: none;
+}
+#asientoMenor3{
+    display: none;
+}
+#asientoInfante1{
+    display: none;
+}
+#asientoInfante2{
+    display: none;
+}
+#asientoInfante3{
+    display: none;
+}
+#divConsiltarXfolio{
+  height: 420px;  
+}
+#botonaceptar{  
+    display: none;
+}
+.airport{
+  text-align:center;
+  font-size:20px;
+  
+}
+.titulo{
+    text-align: center;
+    background: "#DBE5FE";
+}
+
+.contenedor{
+    border-radius: 5px;
+    background: "#CAD8FE";
+    padding: 0px;
+    height: 200px;
+    
+}
+
+#opc{
+    height:400px;
+}
+
+#divTablero{
+      height:450px;
+}
